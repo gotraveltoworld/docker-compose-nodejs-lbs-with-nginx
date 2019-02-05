@@ -1,0 +1,42 @@
+version: '3.7'
+services:
+  nodejs1:
+      restart: always
+      build:
+        context: ./nodejs
+        dockerfile: Dockerfile
+      volumes:
+        - './nodejs/src:/nodejs-container'
+  nodejs2:
+      restart: always
+      build:
+        context: ./nodejs
+        dockerfile: Dockerfile
+      volumes:
+        - './nodejs/src:/nodejs-container'
+  nodejs3:
+      restart: always
+      build:
+        context: ./nodejs
+        dockerfile: Dockerfile
+      volumes:
+        - './nodejs/src:/nodejs-container'
+  nodejs4:
+      restart: always
+      build:
+        context: ./nodejs
+        dockerfile: Dockerfile
+      volumes:
+        - './nodejs/src:/nodejs-container'
+
+  loadbalancer:
+      build: ./loadbalancer
+      links:
+          - nodejs1
+          - nodejs2
+          - nodejs3
+          - nodejs4
+      ports:
+          - '18089:8080'
+volumes:
+  nodejs:
