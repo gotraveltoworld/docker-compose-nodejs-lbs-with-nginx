@@ -31,12 +31,10 @@ services:
 
   loadbalancer:
       build: ./loadbalancer
-      links:
+      depends_on:
           - nodejs1
           - nodejs2
           - nodejs3
           - nodejs4
       ports:
           - '18089:8080'
-volumes:
-  nodejs:
