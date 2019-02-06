@@ -1,7 +1,7 @@
 # Use one of the standard Node images from Docker Hub
 FROM node:boron
 # The Dockerfile's author
-LABEL MAINTAINER gotraveler@gmail.com
+LABEL maintainer="T.H. Lin"
 # Create a directory in the container where the code will be placed.
 RUN mkdir -p /nodejs-container
 # Set this as the default working directory.
